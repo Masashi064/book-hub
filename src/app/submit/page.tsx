@@ -63,8 +63,9 @@ export default function SubmitPage(){
 
       // 完了 → 詳細へ
       location.href = `/book/${bookId}`
-    } catch(e:any){
-      setError(e.message)
+    } catch (e: unknown) {
+     const msg = e instanceof Error ? e.message : String(e)
+     setError(msg)
     } finally {
       setSubmitting(false)
     }

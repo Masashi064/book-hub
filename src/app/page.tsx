@@ -43,7 +43,11 @@ export default function Home() {
     <div className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
         <input value={q} onChange={e=>setQ(e.target.value)} placeholder="検索（タイトル・著者）" className="md:col-span-2 rounded border px-3 py-2" />
-        <select value={cat} onChange={e=>setCat(e.target.value as any)} className="rounded border px-3 py-2">
+        <select
+          value={cat}
+          onChange={e => setCat(e.target.value as '' | Category)}
+          className="rounded border px-3 py-2"
+        >
           <option value="">カテゴリ（すべて）</option>
           {categories.map(c => <option key={c} value={c}>{c}</option>)}
         </select>
